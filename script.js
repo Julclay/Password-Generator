@@ -96,9 +96,11 @@ var upperCasedCharacters = [
     //number character
 
     let numberCharacter = prompt('How many character would you like your password be?');
+    
 
 
   let arrayCharacter = [''];
+  
 
 
 // Function to prompt user for password options
@@ -122,20 +124,51 @@ getPasswordOptions('numeric characters', numericCharacters);
 getPasswordOptions('lower cases characters', lowerCasedCharacters);
 getPasswordOptions('upper cases characters', upperCasedCharacters);
 
-prompt(arrayCharacter);
 
-
+let randomNumber = [];
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
+  arr = arrayCharacter[Math.floor(Math.random() * arrayCharacter.length)];
+
+  return randomNumber.push(arr);
+  
+
+ 
 
 }
+
+
+
+ for (let i = 0; i < (numberCharacter + 0) /10; i++) { // why 10 times the numberCharacter
+  
+   getRandom();
+  
+  
+ }
+
+console.log(randomNumber);
+
+
+
+
+
 
 // Function to generate password with user input
 function generatePassword() {
 
+  let passwordGenerated = '';
+
+    for (let i = 0; i < randomNumber.length; i++) {
+      const character = randomNumber[i];
+
+      passwordGenerated += character;
+      
+    }
+
+    return passwordGenerated
 
 
 }
