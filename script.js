@@ -91,46 +91,34 @@ var upperCasedCharacters = [
 
 //prompting user
 
-
-
     //number character
 
+    let numberCharacter = parseInt(prompt('How many character would you like your password to be?')); //parseInt to make the variable a number and not a string
 
-    let numberCharacter = parseInt(prompt('How many character would you like your password be?')); //parseInt to make the variable a number and not a string
-
-
-    
-    while ((numberCharacter <10) || (numberCharacter >62)) {
+    while ((numberCharacter <10) || (numberCharacter >64)) {
       
-
-      numberCharacter = parseInt(prompt('You need between 10 and 62 characters for your password'));
-  }
-
-  console.log(numberCharacter);
+      numberCharacter = parseInt(prompt('You need between 10 and 64 characters for your password'));
+    }
  
-
-
-  let arrayCharacter = ['']; //empty array to add all the type characters chosen by the user
+    let arrayCharacter = ['']; //empty array to add all the type characters chosen by the user
   
-  let penalty = 0; //variable to add penalty if user does not select a type of characters
+    let penalty = 0; //variable to add penalty if user does not select a type of characters
+
 
 // Function to prompt user for password options
 function getPasswordOptions(name, chosenArray) {
 
-  specify = confirm('Would you like your passworde to inlcude ' + name + '?');
+specify = confirm('Would you like your password to inlcude ' + name + '?');
+// let isSpecify = specify === false
+if(specify === false){
 
- if(specify === false){
+penalty = penalty + 1.1;
 
-  penalty = penalty + 1.1;
-
-  console.log(penalty);
-
-  while (penalty >4) { //while loop to prompt user again if he did not choose any type of characters
+  if (penalty >4) { //if statement to prompt user again if he did not choose any type of characters
     penalty = 0;
     alert('Please select at least one character type')
     allTogetherParam();
     }
-
 
 } else if(specify === true){
 
@@ -139,7 +127,6 @@ function getPasswordOptions(name, chosenArray) {
   arrayCharacter = arrayCharacter.concat(chosenArray);
 
 }
-
 
 }
 
@@ -154,8 +141,6 @@ getPasswordOptions('upper cases characters', upperCasedCharacters);
   
 }
 
-
-
 let randomNumber = []; // empty array to place all the random characters to make the password
 
 
@@ -165,24 +150,12 @@ function getRandom(arr) {
   arr = arrayCharacter[Math.floor(Math.random() * arrayCharacter.length)];
 
   return randomNumber.push(arr);
- 
-
 }
-
 
  for (let i = 0; i < (numberCharacter); i++) { // loop to select the number of character selected by the user
   
    getRandom();
-  
-  
  }
-
-console.log(randomNumber);
-
-
-
-
-
 
 // Function to generate password with user input
 function generatePassword() {
@@ -197,7 +170,6 @@ function generatePassword() {
     }
 
     return passwordGenerated
-
 
 }
 
